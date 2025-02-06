@@ -1,13 +1,14 @@
 import { Given, When, Then } from '@wdio/cucumber-framework';
+import loginPage from '../pageobjectsnew/login.page';
 
 Given(/^User is located on the main page of saucedemo website$/, async () => {
-	await browser.url('https://www.saucedemo.com/')
+	await loginPage.open()
 });
 
 When(/^User click “Login” button$/, async () => {
-     await $('#login-button').click()
+	await loginPage.login('', '')
 });
 
 Then(/^User should see “Epic sadface: Username is required” error message$/, async () => {
-	await expect($('h3[data-test="error"]')).toHaveText('Epic sadface: Username is required')
+	await expect(loginPage.errorMessageUserRequired)
 }); 
