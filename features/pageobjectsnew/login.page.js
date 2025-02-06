@@ -5,7 +5,6 @@ class LoginPage extends BasePage{
     get inputUsername () {return $('#user-name');}
     get inputPassword () {return $('#password');}
     get loginBtn () {return $('#login-button')}
-    // get errorMessageUserRequired () {return $('h3[data-test="error"]').toHaveText('Epic sadface: Username is required')}
     get errorMessageUserRequired () {return $('//h3[text()="Epic sadface: Username is required"]')}
     
     async login (username, password) {
